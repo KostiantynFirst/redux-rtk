@@ -4,7 +4,7 @@ import { Overlay, Modal } from './EditMaterialModal.styled';
 import {
   useGetMaterialByIdQuery,
   useUpdateMaterialMutation,
-} from 'redux/materialsSlice';
+} from 'redux/contactsSlice';
 
 export const EditMaterialModal = () => {
   const { materialId } = useParams();

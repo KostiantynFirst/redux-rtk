@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useDeleteMaterialMutation } from 'redux/materialsSlice';
+import { useDeleteMaterialMutation } from 'redux/contactsSlice';
 
 export const Material = ({ item }) => {
   const navigate = useNavigate();

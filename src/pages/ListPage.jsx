@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { MaterialList } from 'components/MaterialList/MaterialList';
-import { useGetMaterialsQuery } from 'redux/materialsSlice';
+import { useGetMaterialsQuery } from 'redux/contactsSlice';
 
 export const ListPage = () => {
   const navigate = useNavigate();

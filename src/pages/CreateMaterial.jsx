@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import { MaterialEditorForm } from 'components/MaterialEditorForm/MaterialEditorForm';
 import { BackLink } from 'components/BackLink/BackLink';
-import { useAddMaterialMutation } from 'redux/materialsSlice';
+import { useAddMaterialMutation } from 'redux/contactsSlice';
 
 export const CreateMaterialPage = () => {
   const [addMaterial] = useAddMaterialMutation();
