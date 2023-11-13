@@ -7,7 +7,7 @@ import { store } from './redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/react-41/">
+    <BrowserRouter basename="/redux-rtk/">
       <Provider store={store}>
         <App />
       </Provider>
