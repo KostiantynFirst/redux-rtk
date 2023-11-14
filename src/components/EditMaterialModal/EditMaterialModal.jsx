@@ -7,15 +7,15 @@ import {
 } from 'redux/contactsSlice';
 
 export const EditMaterialModal = () => {
-  const { materialId } = useParams();
-  const { data: material } = useGetMaterialByIdQuery(materialId);
+  const { contactId } = useParams();
+  const { data: contact } = useGetMaterialByIdQuery(contactId);
   const [updateMaterial] = useUpdateMaterialMutation();
   const navigate = useNavigate();
   const closeModal = () => navigate('/list');
 
   const handleUpdateMaterial = async fields => {
     try {
-      await updateMaterial({ id: materialId, ...fields });
+      await updateMaterial({ id: contactId, ...fields });
       closeModal();
     } catch (error) {
       console.log(error);
@@ -25,9 +25,9 @@ export const EditMaterialModal = () => {
   return (
     <Overlay>
       <Modal>
-        {material && (
+        {contact && (
           <MaterialEditorForm
-            initialValues={{ title: material.title, link: material.link }}
+            initialValues={{ title: contact.name, link: contact.phone }}
             btnText="Сохранить изменения"
             onSubmit={handleUpdateMaterial}
           />
