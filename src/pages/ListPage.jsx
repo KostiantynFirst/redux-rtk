@@ -1,11 +1,13 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { MaterialList } from 'components/MaterialList/MaterialList';
-import { useGetMaterialsQuery } from 'redux/contactsSlice';
+import { useGetContactsQuerry } from 'redux/contactsSlice';
+
 
 export const ListPage = () => {
   const navigate = useNavigate();
-  const { data: materials, error, isLoading } = useGetMaterialsQuery();
 
+  const { data: contacts, error, isLoading } = useGetContactsQuerry();
+  
   return (
     <div>
       <button type="button" onClick={() => navigate('/create')}>
@@ -20,9 +22,11 @@ export const ListPage = () => {
       {isLoading ? (
         <b>Загружаем материалы</b>
       ) : (
-        <MaterialList items={materials} />
+        <MaterialList items={contacts} />
       )}
       <Outlet />
     </div>
   );
-};
+
+}
+

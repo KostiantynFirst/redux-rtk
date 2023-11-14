@@ -1,27 +1,27 @@
 import toast from 'react-hot-toast';
 import { MaterialEditorForm } from 'components/MaterialEditorForm/MaterialEditorForm';
 import { BackLink } from 'components/BackLink/BackLink';
-import { useAddMaterialMutation } from 'redux/contactsSlice';
+import { useAddContactMutation } from 'redux/contactsSlice';
 
 export const CreateMaterialPage = () => {
-  const [addMaterial] = useAddMaterialMutation();
+  const [addContact] = useAddContactMutation();
 
-  const handleAddMaterial = async values => {
+  const handleAddContact = async values => {
     try {
-      await addMaterial(values);
-      toast.success('Материал добавлен');
+      await addContact(values);
+      toast.success('Контакт добавлен');
     } catch (error) {
-      toast.error('Ошибка при добавлении материала');
+      toast.error('Ошибка при добавлении контакта');
       console.log(error);
     }
   };
 
   return (
     <>
-      <BackLink href="/list" label="К списку материалов" />
+      <BackLink href="/list" label="К списку контактов" />
       <MaterialEditorForm
-        btnText="Добавить материал"
-        onSubmit={handleAddMaterial}
+        btnText="Добавить контакт"
+        onSubmit={handleAddContact}
       />
     </>
   );

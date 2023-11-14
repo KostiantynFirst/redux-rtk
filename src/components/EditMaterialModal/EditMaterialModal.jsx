@@ -1,42 +1,42 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { MaterialEditorForm } from '../MaterialEditorForm/MaterialEditorForm';
-import { Overlay, Modal } from './EditMaterialModal.styled';
-import {
-  useGetMaterialByIdQuery,
-  useUpdateMaterialMutation,
-} from 'redux/contactsSlice';
+// import { useNavigate, useParams } from 'react-router-dom';
+// import { MaterialEditorForm } from '../MaterialEditorForm/MaterialEditorForm';
+// import { Overlay, Modal } from './EditMaterialModal.styled';
+// import {
+//   useGetMaterialByIdQuery,
+//   useUpdateMaterialMutation,
+// } from 'redux/contactsSlice';
 
-export const EditMaterialModal = () => {
-  const { materialId } = useParams();
-  const { data: material } = useGetMaterialByIdQuery(materialId);
-  const [updateMaterial] = useUpdateMaterialMutation();
-  const navigate = useNavigate();
-  const closeModal = () => navigate('/list');
+// export const EditMaterialModal = () => {
+//   const { materialId } = useParams();
+//   const { data: material } = useGetMaterialByIdQuery(materialId);
+//   const [updateMaterial] = useUpdateMaterialMutation();
+//   const navigate = useNavigate();
+//   const closeModal = () => navigate('/list');
 
-  const handleUpdateMaterial = async fields => {
-    try {
-      await updateMaterial({ id: materialId, ...fields });
-      closeModal();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+//   const handleUpdateMaterial = async fields => {
+//     try {
+//       await updateMaterial({ id: materialId, ...fields });
+//       closeModal();
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
 
-  return (
-    <Overlay>
-      <Modal>
-        {material && (
-          <MaterialEditorForm
-            initialValues={{ title: material.title, link: material.link }}
-            btnText="Сохранить изменения"
-            onSubmit={handleUpdateMaterial}
-          />
-        )}
+//   return (
+//     <Overlay>
+//       <Modal>
+//         {material && (
+//           <MaterialEditorForm
+//             initialValues={{ title: material.title, link: material.link }}
+//             btnText="Сохранить изменения"
+//             onSubmit={handleUpdateMaterial}
+//           />
+//         )}
 
-        <button type="button" onClick={closeModal}>
-          Закрыть
-        </button>
-      </Modal>
-    </Overlay>
-  );
-};
+//         <button type="button" onClick={closeModal}>
+//           Закрыть
+//         </button>
+//       </Modal>
+//     </Overlay>
+//   );
+// };
