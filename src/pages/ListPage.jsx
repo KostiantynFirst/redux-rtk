@@ -1,12 +1,11 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { MaterialList } from 'components/MaterialList/MaterialList';
-import { useGetContactsQuerry } from 'redux/contactsSlice';
-
+import { useGetContactsQuery } from 'redux/contactsSlice';
 
 export const ListPage = () => {
   const navigate = useNavigate();
 
-  const { data: contacts, error, isLoading } = useGetContactsQuerry();
+  const { data: contacts, error, isLoading } = useGetContactsQuery();
   
   return (
     <div>
