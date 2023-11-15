@@ -7,17 +7,15 @@ import { EditMaterialModal } from 'components/EditMaterialModal/EditMaterialModa
 
 export const App = () => {
   return (
-    <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/list" />} />
           <Route path="create" element={<CreateMaterialPage />} />
           <Route path="list/*" element={<ListPage />}>
-            <Route path="edit/:materialId" element={<EditMaterialModal />} />
+            <Route path="edit/:contactId" element={<EditMaterialModal />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </>
   );
 };
